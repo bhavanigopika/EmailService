@@ -21,7 +21,7 @@ public class SendEmailEventConsumer {
     }
 
     //Exact same name you have used in publishing(Publisher/Producer)...Refer UserService
-    @KafkaListener(topics = "send_Email", groupId = "emailService")
+    @KafkaListener(topics = "send_Email", groupId = "emailService")//groupId is consumer group, topic is event category
     public void handleSendEmailEvent(String message) throws JsonProcessingException {
         //objectMapper.readValue(message, Message is extracted in what format (i.e) use the same sendEmailDTO)
         SendEmailDTO sendEmailDto = objectMapper.readValue(message, SendEmailDTO.class);
